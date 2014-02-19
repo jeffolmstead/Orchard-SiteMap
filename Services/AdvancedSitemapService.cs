@@ -412,7 +412,7 @@ namespace WebAdvanced.Sitemap.Services {
 
                 urlset.Add(element);
             }
-
+            
             return document;
         }
     }

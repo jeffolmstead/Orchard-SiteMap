@@ -11,3 +11,8 @@ Features:
 		Name: Advanced Sitemap
 		Category: Navigation
         Dependencies: Orchard.jQuery
+	WebAdvanced.SitemapPing:
+		Description: Provides a pinging service for indexing sitemap
+		Name: Advanced Sitemap Ping
+		Category: Navigation
+		Dependencies: WebAdvanced.Sitemap

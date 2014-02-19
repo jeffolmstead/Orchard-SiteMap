@@ -12,7 +12,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WebAdvanced.Sitemap</RootNamespace>
     <AssemblyName>WebAdvanced.Sitemap</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -45,6 +45,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -54,6 +55,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -84,7 +86,6 @@
     <Content Include="Styles\WebAdvanced.Sitemap.Admin.css" />
     <Content Include="Styles\WebAdvanced.Sitemap.Display.css" />
     <Content Include="Web.config" />
-    <Content Include="Views\Web.config" />
     <Content Include="Scripts\Web.config" />
     <Content Include="Styles\Web.config" />
     <Content Include="Properties\AssemblyInfo.cs" />
@@ -95,19 +96,26 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\XmlResult.cs" />
+    <Compile Include="Drivers\SitemapPingSettingsPartDriver.cs" />
+    <Compile Include="Handlers\SitemapPingContentHandler.cs" />
+    <Compile Include="Handlers\SitemapPingSettingsPartHandler.cs" />
     <Compile Include="Handlers\SitemapContentHandler.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="ImportExport\SitemapCustomExportStep.cs" />
     <Compile Include="ImportExport\SitemapExportEventHandler.cs" />
     <Compile Include="ImportExport\SitemapRecipeHandler.cs" />
     <Compile Include="Migrations.cs" />
+    <Compile Include="SitemapPingMigrations.cs" />
     <Compile Include="Models\SitemapCustomRouteRecord.cs" />
+    <Compile Include="Models\SitemapPingSettingsPart.cs" />
     <Compile Include="Models\SitemapRoute.cs" />
     <Compile Include="Models\SitemapRouteRecord.cs" />
     <Compile Include="Models\SitemapSettingsRecord.cs" />
     <Compile Include="Permissions.cs" />
+    <Compile Include="Services\AdvancedSitemapPingService.cs" />
     <Compile Include="Services\DescribeSpecializedSitemapFor.cs" />
     <Compile Include="Services\DescribeSpecializedSitemapProviderContext.cs" />
+    <Compile Include="Services\IAdvancedSitemapPingService.cs" />
     <Compile Include="Services\ISitemapRouteFilter.cs" />
     <Compile Include="Providers\Impl\ContentRouteProvider.cs" />
     <Compile Include="Providers\Impl\CustomRouteProvider.cs" />
@@ -178,6 +186,15 @@
       <ProductName>Windows Installer 4.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\EditorTemplates\Parts\SitemapPingSettings.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <Content Include="placement.info">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
